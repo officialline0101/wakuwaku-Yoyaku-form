@@ -927,7 +927,7 @@
 
         document.addEventListener('DOMContentLoaded', function () {
             liff.init({
-                liffId: '2005254357-zKma9BZk'
+                liffId: '2007490541-jErPkeVJ'
             }).then(() => {
                 console.log('LIFF初期化成功');
             }).catch((err) => {
@@ -964,7 +964,7 @@
         let menuTimes = {
             '和装プラン〈30分〉': 30,
             '洋装プランA〈60分〉': 60,
-            '洋装プランB〈120分〉': 420,
+            '洋装プランB〈120分〉': 120,
             '洋装プランC〈30分〉': 30,
             'リラックスコース〈60分〉': 60,
             'ベーシックコース〈30分〉': 30,
@@ -1388,7 +1388,7 @@
                 return;
             }
 
-            const url = 'https://script.google.com/macros/s/AKfycbwCxnJaxGZ46c3TnnesuZcD_zuxuVoSHoDHo5MxkRzChcK5vZDwBs4HstzkXO-KLyuDYA/exec' +
+            const url = 'https://script.google.com/macros/s/AKfycbwOHumcUJGmQ_Fo5EoO956fHvLNXm4WfqwhBMwYkuxiTpfHdNZ-24Z3FtGXpsUy7p55/exec' +
                 `?startTime=${startTime.toISOString()}&endTime=${endTime.toISOString()}`;
 
             try {
@@ -1540,7 +1540,7 @@ for (let i = 0; i < 7; i++) {
                     overlapping++;
                 }
             });
-            if (overlapping >= 3) {
+            if (overlapping >= 2) {
                 overLimit = true;
                 break;
             }
