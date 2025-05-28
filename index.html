@@ -15,7 +15,7 @@
             /* さらに右へ */
             top: 80%;
             /* 画面中央に固定 */
-            transform: translateY(-50%) translateX(13px);
+            transform: translateY(-50%) translateX(20px);
             /* 中央配置と右ずらし */
             background: #13ca5e;
             display: flex;
@@ -315,19 +315,6 @@
             border: none;
             border-radius: 4px;
             cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            transform-origin: center center;
-        }
-
-        .week-button:hover {
-            background-color: #444444;
-            transform: scale(1.15);
-            /* ドーン！ってくらい拡大🔥 */
-        }
-
-        .week-button:active {
-            transform: scale(0.95);
-            /* クリックした瞬間にギュッと縮む💥 */
         }
 
         .month-button-container {
@@ -345,17 +332,6 @@
             border: none;
             border-radius: 4px;
             cursor: pointer;
-        }
-
-        .month-button:hover {
-            background-color: #444444;
-            transform: scale(1.15);
-            /* ドーン！ってくらい拡大🔥 */
-        }
-
-        .month-button:active {
-            transform: scale(0.95);
-            /* クリックした瞬間にギュッと縮む💥 */
         }
 
         .current-month {
@@ -511,6 +487,34 @@
             }
         }
 
+        .info-text-setumei {
+            margin-top: 0px;
+            /* 上の余白 */
+            margin-bottom: 0px;
+            /* 下に白い隙間を追加 */
+            font-size: 13px;
+            color: #000000;
+            line-height: 1.5;
+            text-align: center;
+            word-wrap: break-word;
+            background-color: #eef9f5;
+            /* 青っぽい背景色を追加 */
+            padding: 0px;
+            border-radius: 4px;
+        }
+
+        /* 携帯端末向けのレスポンシブデザイン */
+        @media (max-width: 768px) {
+            .info-text-setumei {
+                font-size: 11.5px;
+                /* スマホでは少し小さく */
+                margin-top: 0px;
+                /* 上下のマージンを調整 */
+                line-height: 2.0;
+                /* テキストの高さ調整 */
+            }
+        }
+
         .symptoms,
         .options {
             display: block;
@@ -620,7 +624,7 @@
         }
 
         button:hover {
-            background-color: #e9e9e9;
+            background-color: #444;
             transform: scale(1.05);
         }
 
@@ -741,121 +745,89 @@
     </div>
 
     <div class="container">
-        <h1>予約フォームA<br>予約フォーム
+        <h1>わくわくデモアカウント<br>予約フォーム
         </h1>
         <div class="label">お客様名<span class="required">必須</span></div>
+        <div class="info-text-setumei">1度入力すると次回からは自動入力されます</div>
         <input type="text" id="name" placeholder="お名前を入力してください" oninput="saveInput('name')">
 
         <div class="label">電話番号<span class="required">必須</span></div>
+        <div class="info-text-setumei">1度入力すると次回からは自動入力されます</div>
         <input type="tel" id="phone" placeholder="電話番号を入力してください" oninput="saveInput('phone')">
 
         <div class="label">ご来店回数<span class="required">必須</span></div>
         <div class="visit-buttons">
-            <button type="button" id="firstVisit" onclick="selectVisit(this)">1回目〈30分〉</button>
-            <button type="button" id="repeatVisit" onclick="selectVisit(this)">2回目以降〈0分〉</button>
+            <button type="button" id="firstVisit" onclick="selectVisit(this)">1回目（30分）</button>
+            <button type="button" id="repeatVisit" onclick="selectVisit(this)">2回目以降（0分）</button>
         </div>
 
         <div class="label" id="course">メニューをお選びください<span class="required">必須</span></div>
         <div class="info-text">※メニューを選択すると<br>空き状況のカレンダーが表示されます</div>
         <div class="menu-sections">
-            <button type="button" onclick="showMenu('male')">ブライダルコース</button>
-            <button type="button" onclick="showMenu('female')">シェービングコース</button>
-            <button type="button" onclick="showMenu('whitening')">マッサージコース</button>
+            <button type="button" onclick="showMenu('male')">エステメニュー</button>
+            <button type="button" onclick="showMenu('female')">脱毛メニュー</button>
+            <button type="button" onclick="showMenu('whitening')">ホワイトニングメニュー</button>
         </div>
 
         <div id="treatment-text" style="display: none; margin-bottom: 10px;"></div>
 
         <div id="male" class="menu-section">
             <div class="highlight-background">
-                <span class="highlight-text">◆ブライダルコース◆</span>
+                <span class="highlight-text">◆エステメニュー◆</span>
             </div>
             <div class="symptoms">
-                <button type="button" onclick="selectSymptom(this, 'treatment1')" data-price="15000">和装プラン〈30分〉</button>
-                <button type="button" onclick="selectSymptom(this, 'treatment2')"
-                    data-price="15000">洋装プランA〈60分〉</button>
-                <button type="button" onclick="selectSymptom(this, 'treatment3')"
-                    data-price="15000">洋装プランB〈120分〉</button>
-                <button type="button" onclick="selectSymptom(this, 'treatment4')"
-                    data-price="15000">洋装プランC〈30分〉</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment1')" data-price="1000">コースA（1000円/30分）</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment2')" data-price="2000">コースB（2000円/60分）</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment3')" data-price="3000">コースC（3000円/90分）</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment4')" data-price="4000">コースD（4000円/120分）</button>
             </div>
             <div class="highlight-background">
-                <span class="highlight-text">ブライダルコース：オプション</span>
+                <span class="highlight-text">オプション</span>
             </div>
             <div class="irradiations">
-                <button type="button" id="firstirradiations" onclick="selectirradiations(this)"
-                    data-price="15000">眉カット〈30分〉</button>
-                <button type="button" id="repeatirradiations" onclick="selectirradiations(this)"
-                    data-price="15000">ベーシックマッサージ</button>
-                <button type="button" id="sanirradiations" onclick="selectirradiations(this)"
-                    data-price="15000">リラックスマッサージ</button>
+                <button type="button" id="firstirradiations" onclick="selectirradiations(this)" data-price="1000">オプションA（1000円/10分）</button>
+                <button type="button" id="repeatirradiations" onclick="selectirradiations(this)" data-price="2000">オプションB（2000円/20分）</button>
+                <button type="button" id="sanirradiations" onclick="selectirradiations(this)" data-price="3000">オプションC（3000円/30分）</button>
             </div>
         </div>
 
         <div id="female" class="menu-section">
             <div class="highlight-background">
-                <span class="highlight-text">◆シェービングコース◆</span>
+                <span class="highlight-text">◆脱毛メニュー◆</span>
             </div>
             <div class="symptoms">
-                <button type="button" onclick="selectSymptom(this, 'treatment5')"
-                    data-price="15000">リラックスコース〈60分〉</button>
-                <button type="button" onclick="selectSymptom(this, 'treatment6')"
-                    data-price="15000">ベーシックコース〈30分〉</button>
-                <button type="button" onclick="selectSymptom(this, 'treatment7')"
-                    data-price="15000">スピードコース〈90分〉</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment5')" data-price="1000">コースA（1000円/30分）</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment6')" data-price="2000">コースB（2000円/60分）</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment7')" data-price="3000">コースC（3000円/90分）</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment4')" data-price="4000">コースD（4000円/120分）</button>
             </div>
             <div class="highlight-background">
-                <span class="highlight-text">シェービングコース：オプション</span>
+                <span class="highlight-text">オプション</span>
             </div>
             <div class="irradiations">
-                <button type="button" id="firstirradiations" onclick="selectirradiations(this)"
-                    data-price="15000">眉カット〈30分〉</button>
-                <button type="button" id="repeatirradiations" onclick="selectirradiations(this)"
-                    data-price="15000">襟足〈30分〉</button>
-                <button type="button" id="sanirradiations" onclick="selectirradiations(this)"
-                    data-price="15000">背中</button>
-                <button type="button" id="yonirradiations" onclick="selectirradiations(this)"
-                    data-price="15000">背中(腰まで)〈30分〉</button>
-                <button type="button" id="goirradiations" onclick="selectirradiations(this)"
-                    data-price="15000">デコルテ〈30分〉</button>
-                <button type="button" id="rokuirradiations" onclick="selectirradiations(this)"
-                    data-price="15000">腕〈30分〉</button>
-                <button type="button" id="sitiirradiations" onclick="selectirradiations(this)"
-                    data-price="15000">保湿パック〈30分〉</button>
-                <button type="button" id="hatiirradiations" onclick="selectirradiations(this)"
-                    data-price="15000">美白パック〈30分〉</button>
+                <button type="button" id="firstirradiations" onclick="selectirradiations(this)" data-price="1000">オプションA（1000円/10分）</button>
+                <button type="button" id="repeatirradiations" onclick="selectirradiations(this)" data-price="2000">オプションB（2000円/20分）</button>
+                <button type="button" id="sanirradiations" onclick="selectirradiations(this)" data-price="3000">オプションC（3000円/30分）</button>
             </div>
         </div>
 
         <div id="whitening" class="menu-section">
             <div class="highlight-background">
-                <span class="highlight-text">◆マッサージコース◆</span>
+                <span class="highlight-text">◆ホワイトニングメニュー◆</span>
             </div>
             <div class="symptoms">
-                <button type="button" onclick="selectSymptom(this, 'treatment8')"
-                    data-price="15000">リラックスマッサージ〈30分〉</button>
-                <button type="button" onclick="selectSymptom(this, 'treatment9')"
-                    data-price="15000">ベーシックマッサージ〈30分〉</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment1')" data-price="1000">コースA（1000円/30分）</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment2')" data-price="2000">コースB（2000円/60分）</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment3')" data-price="3000">コースC（3000円/90分）</button>
+                <button type="button" onclick="selectSymptom(this, 'treatment4')" data-price="4000">コースD（4000円/120分）</button>
             </div>
             <div class="highlight-background">
-                <span class="highlight-text">マッサージコース：オプション</span>
+                <span class="highlight-text">オプション</span>
             </div>
             <div class="irradiations">
-                <button type="button" id="firstirradiations" onclick="selectirradiations(this)"
-                    data-price="15000">眉カット〈30分〉</button>
-                <button type="button" id="repeatirradiations" onclick="selectirradiations(this)"
-                    data-price="15000">襟足〈30分〉</button>
-                <button type="button" id="sanirradiations" onclick="selectirradiations(this)"
-                    data-price="15000">背中</button>
-                <button type="button" id="yonirradiations" onclick="selectirradiations(this)"
-                    data-price="15000">背中(腰まで)〈30分〉</button>
-                <button type="button" id="goirradiations" onclick="selectirradiations(this)"
-                    data-price="15000">デコルテ〈30分〉</button>
-                <button type="button" id="rokuirradiations" onclick="selectirradiations(this)"
-                    data-price="15000">腕〈30分〉</button>
-                <button type="button" id="sitiirradiations" onclick="selectirradiations(this)"
-                    data-price="15000">保湿パック〈30分〉</button>
-                <button type="button" id="hatiirradiations" onclick="selectirradiations(this)"
-                    data-price="15000">美白パック〈30分〉</button>
+                <button type="button" id="firstirradiations" onclick="selectirradiations(this)" data-price="1000">オプションA（1000円/10分）</button>
+                <button type="button" id="repeatirradiations" onclick="selectirradiations(this)" data-price="2000">オプションB（2000円/20分）</button>
+                <button type="button" id="sanirradiations" onclick="selectirradiations(this)" data-price="3000">オプションC（3000円/30分）</button>
             </div>
         </div>
 
@@ -899,7 +871,6 @@
 
             <div class="loading-spinner" id="loadingSpinner">
                 <div class="spinner"></div>
-                <div class="loading-text">読み込み中...</div>
             </div>
         </div>
 
@@ -939,36 +910,26 @@
 
         // 訪問回数ごとの時間設定 (例：初めて=20分、2回目以降=15分)
         let visitTimes = {
-            '1回目〈30分〉': 30,
-            '2回目以降〈0分〉': 0
+            '1回目（30分）': 30,
+            '2回目以降（0分）': 0
         };
 
         let selectedVisitTime = 0; // 訪問回数で選択された時間
 
         // 訪問回数ごとの時間設定 (例：初めて=20分、2回目以降=15分)
         let irradiationsTimes = {
-            '眉カット〈30分〉': 30,
-            '襟足〈30分〉': 30,
-            '背中(キャミソールライン)〈30分〉': 30,
-            '背中(腰まで)〈30分〉': 30,
-            'デコルテ〈30分〉': 30,
-            '腕〈30分〉': 30,
-            '保湿パック〈30分〉': 30,
-            'ベーシックマッサージ(パック付き)〈30分〉': 30,
-            'リラックスマッサージの(パック付き)〈30分〉': 30,
-            '美白パック〈30分〉': 30
+            'オプションA（1000円/10分）': 10,
+            'オプションB（2000円/20分）': 20,
+            'オプションC（3000円/30分）': 30
         };
 
         let selectedirradiationsTime = 0; // 訪問回数で選択された時間
 
         let menuTimes = {
-            '和装プラン〈30分〉': 30,
-            '洋装プランA〈60分〉': 60,
-            '洋装プランB〈120分〉': 120,
-            '洋装プランC〈30分〉': 30,
-            'リラックスコース〈60分〉': 60,
-            'ベーシックコース〈30分〉': 30,
-            'スピードコース〈90分〉': 90
+            'コースA（1000円/30分）': 30,
+            'コースB（2000円/60分）': 60,
+            'コースC（3000円/90分）': 90,
+            'コースD（4000円/120分）': 120
         };
 
         let selectedMenuTime = 0;
@@ -1127,7 +1088,6 @@
 
             // 選択されたオプションを取得
             const updatedSelectedButtons = document.querySelectorAll('.symptoms button.active');
-            const treatmentText = document.getElementById('treatment-text');
 
             if (updatedSelectedButtons.length === 0) {
                 // すべてのボタンの選択が解除された場合、メニュー時間を0にリセット
@@ -1388,7 +1348,7 @@
                 return;
             }
 
-            const url = 'https://script.google.com/macros/s/AKfycbwOHumcUJGmQ_Fo5EoO956fHvLNXm4WfqwhBMwYkuxiTpfHdNZ-24Z3FtGXpsUy7p55/exec' +
+            const url = 'https://script.google.com/macros/s/AKfycbzd1PPj5p73yjlNu3lrIVgMKvzUHoWCWHQcTZwnFnvhK7AAkFdUfyGrXuog57yP74rU/exec' +
                 `?startTime=${startTime.toISOString()}&endTime=${endTime.toISOString()}`;
 
             try {
@@ -1457,125 +1417,126 @@
                 }
             }
 
-// 現在の日時を取得
-const now = new Date();
+            // 現在の日時を取得
+            const now = new Date();
 
-// テーブルの内容を更新
-for (let i = 0; i < 7; i++) {
-    const day = new Date(currentDate);
-    day.setDate(day.getDate() + i);
+            // テーブルの内容を更新
+            for (let i = 0; i < 7; i++) {
+                const day = new Date(currentDate);
+                day.setDate(day.getDate() + i);
 
-    let businessEventTimes = []; // 営業日のイベント時間帯を記録する配列
+                let businessEventTimes = []; // 営業日のイベント時間帯を記録する配列
 
-    availability.forEach(slot => {
-        const eventStart = new Date(slot.startTime);
-        const eventEnd = new Date(slot.endTime);
-        if (eventStart.toDateString() === day.toDateString() && slot.title === "営業日") {
-            businessEventTimes.push({ start: eventStart, end: eventEnd });
-        }
-    });
+                availability.forEach(slot => {
+                    const eventStart = new Date(slot.startTime);
+                    const eventEnd = new Date(slot.endTime);
+                    if (eventStart.toDateString() === day.toDateString() && slot.title === "営業日") {
+                        businessEventTimes.push({ start: eventStart, end: eventEnd });
+                    }
+                });
 
-    for (let j = 0; j < times.length; j++) {
-        const cell = table.rows[j].cells[i + 1];
+                for (let j = 0; j < times.length; j++) {
+                    const cell = table.rows[j].cells[i + 1];
 
-        const slotStart = new Date(day);
-        slotStart.setHours(parseInt(times[j].split(':')[0]), parseInt(times[j].split(':')[1]), 0, 0);
+                    // すでにセルが✕の場合はスキップする
+                    if (cell.textContent === '✕') {
+                        continue;
+                    }
 
-        let slotEnd = new Date(slotStart);
-        let menuDuration = selectedMenuTime || 10;
-        let visitDuration = selectedVisitTime || 0;
-        let irradiationsDuration = selectedirradiationsTime || 0;
+                    const slotStart = new Date(day);
+                    slotStart.setHours(parseInt(times[j].split(':')[0]), parseInt(times[j].split(':')[1]), 0, 0);
 
-        // 仮に終了時間を計算
-        slotEnd.setMinutes(slotStart.getMinutes() + menuDuration + visitDuration + irradiationsDuration);
+                    const slotEnd = new Date(slotStart);
+                    let menuDuration = selectedMenuTime || 10;
+                    let visitDuration = selectedVisitTime || 0;
+                    let irradiationsDuration = selectedirradiationsTime || 0;
 
-        // 日付を跨ぐ場合は✕
-        if (slotEnd.getDate() !== slotStart.getDate()) {
-            cell.textContent = '✕';
-            cell.classList.add('unavailable');
-            continue;
-        }
+                    // メニュー時間と訪問回数の時間を合計して、終了時間を設定
+                    slotEnd.setMinutes(slotStart.getMinutes() + menuDuration + visitDuration + irradiationsDuration);
 
-        // 18時以降に終了する予約は✕
-        if (slotEnd.getHours() === 18 && slotEnd.getMinutes() > 0 || slotEnd.getHours() > 18) {
-            cell.textContent = '✕';
-            cell.classList.add('unavailable');
-            continue;
-        }
+                    // 終了時間が翌日 (0時以降) になる場合は✕に設定
+                    if (slotEnd.getDate() !== slotStart.getDate()) {
+                        cell.textContent = '✕';
+                        cell.classList.add('unavailable');
+                        continue;
+                    }
 
-        // 過去の時間は✕
-        if (slotStart < now) {
-            cell.textContent = '✕';
-            cell.classList.add('unavailable');
-            continue;
-        }
+                    // 18時以降に終了する予約を不可にする (17:30は可)
+                    if (slotEnd.getHours() === 18 && slotEnd.getMinutes() > 0) {
+                        cell.textContent = '✕';
+                        cell.classList.add('unavailable');
+                        continue;
+                    } else if (slotEnd.getHours() > 18) {
+                        cell.textContent = '✕';
+                        cell.classList.add('unavailable');
+                        continue;
+                    }
 
-        // 当日の営業時間内かどうか（Googleカレンダーイベント）
-        const isBusinessEventTime = businessEventTimes.some(event => {
-            return slotStart >= event.start && slotEnd <= event.end;
-        });
+                    // ここで終了時間を使った条件処理を行う
+                    // 例えば、リアルタイムで既に過ぎた時間帯は×にする
+                    if (slotStart < now) {
+                        cell.textContent = '✕';
+                        cell.classList.add('unavailable');
+                        continue;
+                    }
 
-        // 通常の営業日（手動設定されたbusinessDays）
-        const isBusinessDay = businessDays.some(businessDay => {
-            const businessDayStart = new Date(businessDay.start);
-            const businessDayEnd = new Date(businessDay.end);
-            return slotStart >= businessDayStart && slotEnd <= businessDayEnd;
-        });
+                    const isBusinessDay = businessDays.some(businessDay => {
+                        const businessDayStart = new Date(businessDay.start);
+                        const businessDayEnd = new Date(businessDay.end);
+                        return slotStart >= businessDayStart && slotEnd <= businessDayEnd;
+                    });
 
-        // 営業日以外の重複イベントを取得
-        const relevantEvents = availability.filter(slot => {
-            const eventStart = new Date(slot.startTime);
-            const eventEnd = new Date(slot.endTime);
-            return slot.title !== "営業日" && eventStart < slotEnd && eventEnd > slotStart;
-        });
+                    const isBusinessEventTime = businessEventTimes.some(event => {
+                        return slotStart < event.end && event.start < slotEnd;
+                    });
 
-        // 同時刻に3件以上予約があると✕
-        let overLimit = false;
-        for (let checkTime = new Date(slotStart.getTime()); checkTime < slotEnd; checkTime.setMinutes(checkTime.getMinutes() + 1)) {
-            let overlapping = 1; // 自予約を含む
-            relevantEvents.forEach(slot => {
-                const eventStart = new Date(slot.startTime);
-                const eventEnd = new Date(slot.endTime);
-                if (eventStart <= checkTime && eventEnd > checkTime) {
-                    overlapping++;
+                    const count = availability.reduce((acc, slot) => {
+                        const eventStart = new Date(slot.startTime);
+                        const eventEnd = new Date(slot.endTime);
+
+                        if (eventStart < slotEnd && slotStart < eventEnd && slot.title !== "営業日") {
+                            return acc + 1;
+                        }
+                        return acc;
+                    }, 0);
+
+                    // 営業日のイベント時間内に他のイベントがある場合
+                    if (isBusinessEventTime && count > 0) {
+                        cell.textContent = '✕';
+                        cell.classList.add('unavailable');
+                    }
+                    // 営業日のイベント時間（他のイベントがない場合）
+                    else if (isBusinessEventTime) {
+                        cell.textContent = '◯';
+                        cell.classList.add('available');
+                    }
+                    // 営業日で、指定されている時間以外の時間は×
+                    else if (businessEventTimes.length > 0) {
+                        cell.textContent = '✕';
+                        cell.classList.add('unavailable');
+                    }
+                    // 日曜日で、営業日ではない場合
+                    else if (slotStart.getDay() === 0 && !isBusinessDay && businessEventTimes.length === 0) {
+                        cell.textContent = '✕';
+                        cell.classList.add('unavailable');
+                    }
+                    // 営業日でかつ他のイベントがない場合
+                    else if (isBusinessDay && count === 0) {
+                        cell.textContent = '◯';
+                        cell.classList.add('available');
+                    }
+                    // それ以外の条件
+                    else if (count <= 0) {
+                        cell.textContent = '◯';
+                        cell.classList.add('available');
+                    } else {
+                        cell.textContent = '✕';
+                        cell.classList.add('unavailable');
+                    }
+
+                    cell.setAttribute('data-date', slotStart.toISOString());
                 }
-            });
-            if (overlapping >= 2) {
-                overLimit = true;
-                break;
             }
-        }
-
-// 最終的な可否判定
-if (isBusinessEventTime && !overLimit) {
-    cell.textContent = '◯';
-    cell.classList.add('available');
-} else if (isBusinessEventTime && overLimit) {
-    cell.textContent = '✕';
-    cell.classList.add('unavailable');
-} else if (slotStart.getDay() === 0 && !isBusinessDay && businessEventTimes.length === 0) {
-    // 日曜日で、営業日でない場合は ✕
-    cell.textContent = '✕';
-    cell.classList.add('unavailable');
-} else if (isBusinessDay && !overLimit) {
-    cell.textContent = '◯';
-    cell.classList.add('available');
-} else if (!isBusinessEventTime && businessEventTimes.length > 0) {
-    cell.textContent = '✕';
-    cell.classList.add('unavailable');
-} else if (!overLimit) {
-    cell.textContent = '◯';
-    cell.classList.add('available');
-} else {
-    cell.textContent = '✕';
-    cell.classList.add('unavailable');
-}
-
-
-        // セルにこの時間帯のデータ属性を追加（ISO形式の日時）
-        cell.setAttribute('data-date', slotStart.toISOString());
-    }
-}
         }
 
         function updateCalendarHeader(date) {
